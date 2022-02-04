@@ -11,11 +11,12 @@
   "scripts": {
     "tests": "ts-mocha './test/**/*.ts'",
     "test": "ts-mocha",
+    "storage-init-test": "ts-mocha --timeout 0 './test/storage.init.tests.ts'",
     "build": "rm -rf dist; tsc",
     "generate-api-docs": " rm -rf api-docs && ./node_modules/.bin/jsdoc && jsdoc -c 'jsdoc.json' --readme README.api.md"
   },
   "engines": {
-    "node": "^14.0.0"
+    "node": "^16.0.0"
   },
   "dependencies": {
     "@verida/account": "^1.1.7",
@@ -39,6 +40,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/mocha": "^9.1.0",
     "@types/pouchdb": "^6.4.0",
     "better-docs": "^2.3.2",
     "jsdoc": "^3.6.7",
