@@ -242,11 +242,13 @@ describe('Verida database tests', () => {
 
         it(`can't open an external database with owner read and not the owner`, async function() {
             const promise = new Promise((resolve, rejects) => {
-                context2.openExternalDatabase(DB_NAME_OWNER, did1).then(rejects, resolve)
+                context2.openExternalDatabase(DB_NAME_OWNER, did1, {
+                    encryptionKey: 'hello world'
+                }).then(rejects, resolve)
             })
             const result = await promise
 
-            assert.deepEqual(result, new Error('Unable to open database. Permissions require "owner" access to read, but account is not owner.'))
+            assert.deepEqual(result, new Error('Permission denied to access remote database.'))
         })
 
         it(`can't write to an external database with write=users and read=public, where user has no access`, async function() {

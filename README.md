@@ -24,11 +24,11 @@ These are helper packages that typically aren't used directly:
 
 ### Node Version
 
-This requires **node v14.17.1** to build. We use [nvm](https://github.com/nvm-sh/nvm) to manage this:
+This requires **node v16+** to build. We use [nvm](https://github.com/nvm-sh/nvm) to manage this:
 
 ```
-nvm install v14.17.1
-nvm use v14.17.1
+nvm install v16
+nvm use v16
 ```
 
 
@@ -43,24 +43,20 @@ Unpublished dependencies betwen monorepo packages can be linked by:
 
 ### Building
 
-General process:
-* `cd package/package-name` (ie, the package names listed below)
+Build everything:
+
+In the root directory:
+
+```
+npx lerna bootstrap
+npx lerna run build
+```
+
+To build a specific package:
+
+* `cd package/package-name`
 * `yarn`
 * `yarn build`
-* `yarn link`
-
-Need to build the packages in this order:
-
-1. encryption-utils 
-2. keyring
-3. did-document
-4. did-client
-5. did-resolver
-6. storage-link
-7. account
-8. account-node
-9. account-web-vault
-10. client-ts
 
 
 ## Creating a release

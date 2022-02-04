@@ -12,6 +12,8 @@ import { Wallet } from 'ethers'
 const wallet = Wallet.createRandom()
 const VDA_PRIVATE_KEY = wallet.privateKey
 
+const INVALID_CONTEXT_NAME = 'ABC123***'
+
 /**
  * WARNING: These tests create a new 3ID and storage context everytime they run!
  */
@@ -55,11 +57,11 @@ describe('Storage initialization tests', () => {
         it(`cant open a user storage context that doesn't exist, even if authenticated`, async function() {
             const promise = new Promise((resolve, rejects) => {
                 // open storage context without forcing it to be opened
-                network.openContext(CONFIG.CONTEXT_NAME, false).then(rejects, resolve)
+                network.openContext(INVALID_CONTEXT_NAME, false).then(rejects, resolve)
             })
             const result = await promise
 
-            assert.deepEqual(result, new Error(`Unable to locate requested storage context (${CONFIG.CONTEXT_NAME}) for this DID (${did}) -- Storage context doesn't exist (try force create?)`))
+            assert.deepEqual(result, new Error(`Unable to locate requested storage context (${INVALID_CONTEXT_NAME}) for this DID (${did}) -- Storage context doesn't exist (try force create?)`))
         })
 
         it(`can force open a user storage context that doesn't exist when authenticated`, async function() {
