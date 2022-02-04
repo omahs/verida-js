@@ -2,10 +2,24 @@
   "name": "root",
   "private": true,
   "license": "ISC",
+  "scripts": {
+    "install": "lerna run install",
+    "build": "lerna run build",
+    "test": "lerna run test"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   },
   "workspaces": [
-    "packages/*"
+    "packages/encryption-utils", 
+    "packages/keyring",
+    "packages/did-document",
+    "packages/did-client",
+    "packages/did-resolver",
+    "packages/storage-link",
+    "packages/account",
+    "packages/account-node",
+    "packages/account-web-vault",
+    "packages/client-ts"
   ]
 }

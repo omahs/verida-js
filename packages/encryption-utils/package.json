@@ -13,7 +13,7 @@
     "build": "tsc"
   },
   "engines": {
-    "node": "^14.0.0"
+    "node": "^16.0.0"
   },
   "dependencies": {
     "ethers": "^5.5.1",
@@ -24,7 +24,7 @@
     "mocha": "^8.2.1",
     "ts-mocha": "^8.0.0",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.5.5"
   },
   "gitHead": "2eb834ec3b626c0349f033f7da99faa7ed58f0d1"
 }
