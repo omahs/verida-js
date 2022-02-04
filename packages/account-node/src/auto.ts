@@ -47,10 +47,16 @@ export default class AutoAccount extends Account {
         return this.wallet.did
     }
 
+    /**
+     * 
+     * @param contextName 
+     * @param forceCreate Force creation of this storage config if it doesn't exist. Will also force an update
+     * @returns 
+     */
     public async storageConfig(contextName: string, forceCreate?: boolean): Promise<Interfaces.SecureContextConfig | undefined> {
         let storageConfig = await StorageLink.getLink(this.didClient, this.wallet.did, contextName, true)
         
-        if (!storageConfig || forceCreate) {
+        if (!storageConfig && forceCreate) {
             const endpoints: Interfaces.SecureContextServices = {
                 databaseServer: this.accountConfig.defaultDatabaseServer,
                 messageServer: this.accountConfig.defaultMessageServer

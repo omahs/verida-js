@@ -12,7 +12,7 @@ import { Wallet } from 'ethers'
 const wallet = Wallet.createRandom()
 const VDA_PRIVATE_KEY = wallet.privateKey
 
-const INVALID_CONTEXT_NAME = 'ABC123***'
+const INVALID_CONTEXT_NAME = '** Invalid Context **'
 
 /**
  * WARNING: These tests create a new 3ID and storage context everytime they run!
